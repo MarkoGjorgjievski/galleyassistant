@@ -1,19 +1,15 @@
 import "./ListItem.scss";
 
-const ListItem = ({ listItemType, optionName, color, handleChange }) => {
-  // let color;
-  // switch (optionName) {
-  //   case "Chicken":
-  //     color = "#ffc700";
-  //     break;
-  //   case "Beef":
-  //     color = "#be2b2b";
-  //     break;
-  //   default:
-  //     color = "#d3d3d3";
-  //     break;
-  // }
-
+const ListItem = ({
+  listItemType,
+  optionName,
+  color,
+  handleChange,
+  handleClick,
+  count,
+  handleInput,
+  value,
+}) => {
   switch (listItemType) {
     case "display":
       return (
@@ -40,6 +36,9 @@ const ListItem = ({ listItemType, optionName, color, handleChange }) => {
             className="option-checkbox"
             type="checkbox"
             onChange={handleChange}
+            onClick={handleClick}
+            name={optionName}
+            color={color}
           />
         </div>
       );
@@ -52,7 +51,11 @@ const ListItem = ({ listItemType, optionName, color, handleChange }) => {
             style={{ backgroundColor: color }}
           ></span>
           <p className="option-name">{optionName}</p>
-          <input className="option-quantity-input" type="number" />
+          <input
+            className="option-quantity-input"
+            type="number"
+            onInput={handleInput}
+          />
         </div>
       );
     default:
