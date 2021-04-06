@@ -1,0 +1,59 @@
+.list-item {
+  height: auto;
+  margin: 5px 0;
+  list-style-type: none;
+  display: grid;
+
+  align-items: center;
+
+  &-display {
+    grid-template-areas: "colour opName percentage totalQuantity";
+    grid-template-columns: 20px auto 50px 50px;
+  }
+
+  &-checkbox {
+    grid-template-areas: "colour opName checkbox";
+    grid-template-columns: 20px auto 50px;
+  }
+
+  &-quantity {
+    grid-template-areas: "colour opName inputQuantity";
+    grid-template-columns: 20px auto 50px;
+  }
+
+  & > p {
+    margin: 5px;
+  }
+}
+
+.option-color {
+  grid-area: colour;
+  width: 15px;
+  height: 15px;
+  border-radius: 3px;
+}
+
+.option-name {
+  grid-area: opName;
+}
+
+.option-checkbox {
+  grid-area: checkbox;
+  justify-self: end;
+}
+
+.option-percentage {
+  grid-area: percentage;
+  justify-self: end;
+}
+
+.option-quantity {
+  grid-area: totalQuantity;
+  justify-self: end;
+}
+
+.option-quantity-input {
+  grid-area: inputQuantity;
+
+  width: 100%;
+}

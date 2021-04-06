@@ -1,0 +1,33 @@
+.meals-input {
+  grid-area: meals-input;
+  border-left: 1px solid gray;
+
+  padding: 20px;
+  display: grid;
+  grid-auto-rows: minmax(min-content, max-content);
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &-title {
+    margin: 0;
+  }
+
+  &-chart {
+    padding: 10px 0;
+  }
+
+  &-chart-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 99px;
+    margin: 0 auto;
+    background-color: brown;
+  }
+
+  &-list {
+    border-bottom: 0.5px solid #ccc;
+  }
+}

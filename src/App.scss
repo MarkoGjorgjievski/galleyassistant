@@ -1,0 +1,18 @@
+.app {
+  margin-top: 20px;
+  // margin-top: 0px;
+  width: 819.2px;
+  // width: 1024px;
+  height: 614.4px;
+  // height: 768px;
+  box-sizing: content-box;
+  border: 1px solid #000;
+  border-radius: 10px;
+
+  display: grid;
+  grid-template-columns: 66% 34%;
+  grid-template-rows: minmax(min-content, max-content) auto;
+  grid-template-areas:
+    "header header"
+    "zones   meals-input";
+}
