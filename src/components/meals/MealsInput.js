@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import ListItem from "./ListItem";
 import "./MealsInput.scss";
 import mealsAndColors from "../../utils/mealsAndColors";
@@ -24,7 +24,7 @@ const MealsInput = () => {
     let name = event.target.name;
     let optionId = "option" + name;
 
-    if (event.target.checked) {
+    if (count < 3 && event.target.checked) {
       setOptions((prevOptions) => {
         return {
           ...prevOptions,
@@ -36,9 +36,13 @@ const MealsInput = () => {
               mid: 0,
               aft: 0,
             },
+            isChecked: true,
           },
         };
       });
+      setCount((prevCount) => prevCount + 1);
+    } else if (event.target.checked) {
+      event.target.checked = !event.target.checked;
     } else {
       setOptions((prevOptions) => {
         const updatedOptions = removeByKey(prevOptions, optionId);
@@ -46,14 +50,9 @@ const MealsInput = () => {
           ...updatedOptions,
         };
       });
+      setCount((prevCount) => prevCount - 1);
     }
   };
-
-  const handleClick = () => {
-    setCount((prevCount) => prevCount + 1);
-  };
-
-  console.log(options);
 
   const chooseOptions = Object.entries(mealsAndColors.main).map(([, value]) =>
     value.meals.map((name) => {
@@ -64,7 +63,7 @@ const MealsInput = () => {
           color={value.hex}
           key={`${name}-4fw`}
           handleChange={handleChange}
-          handleClick={handleClick}
+          // handleClick={handleClick}
           count={count}
         />
       );

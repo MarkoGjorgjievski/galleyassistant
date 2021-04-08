@@ -5,7 +5,6 @@ const ListItem2 = ({
   optionName,
   color,
   handleChange,
-  handleClick,
   count,
   handleInput,
   value,
@@ -22,14 +21,18 @@ const ListItem2 = ({
       )}
 
       {listItemType === "checkbox" && (
-        <input
-          className="option-checkbox"
-          type="checkbox"
-          onChange={handleChange}
-          onClick={handleClick}
-          name={optionName}
-          color={color}
-        />
+        <div class="checkbox-wrapper">
+          <label class="switch">
+            <input
+              className="option-checkbox"
+              type="checkbox"
+              onChange={handleChange}
+              name={optionName}
+              color={color}
+            />
+            <span class="slider round"></span>
+          </label>
+        </div>
       )}
       {listItemType === "quantity" && (
         <input
